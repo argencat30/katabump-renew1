@@ -2,7 +2,7 @@ name: Katabump Auto Renew
 
 on:
   schedule:
-  - cron: '30 22 */3 * *'  # 每天 UTC 22:30 (北京时间 6:30点) 运行,根据服务到期时间自行修改
+  - cron: '30 20 * * *'  # 每天 UTC 22:30 (北京时间 6:30点) 运行,根据服务到期时间自行修改
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -29,14 +29,14 @@ jobs:
     - name: ⚙ 设置代理 (sing-box)
       continue-on-error: true
       env:
-        NODE_LINK: ${{ secrets.NODE_LINK }}
+        NODE_LINK: ${{ secrets.NODE_LINK_WISPBYTE_ALEX }}
       run: |
         bash <(wget -qO- https://main.ssss.nyc.mn/setup_proxy.sh)
 
     - name: 🚀 运行续期脚本
       env:
-        KATABUMP_EMAIL: ${{ secrets.KATABUMP_EMAIL }}
-        KATABUMP_PASSWORD: ${{ secrets.KATABUMP_PASSWORD }}
+        KATABUMP_EMAIL: ${{ secrets.KATABUMP_EMAIL_413h3p7K }}
+        KATABUMP_PASSWORD: ${{ secrets.KATABUMP_PASSWORD_413h3p7K }}
         TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       run: |
